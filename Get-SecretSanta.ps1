@@ -46,6 +46,9 @@ function Get-SecretSanta {
         }
     } while (-not $validAssignment)
 
+    # Encode Message:
+    $Message = Encode-AllCharacters -InputString $Message
+
     # Assign Secret Santas
     for ($i = 0; $i -lt $Names.Length; $i++) {
         $giver = $Names[$i]
@@ -68,6 +71,6 @@ function Get-SecretSanta {
 }
 
 # Example usage
-$names = @("Alice", "Bob", "Charlie", "David")
+$names = @("Sandra", "Oskar", "Meggie", "Pontus", "Eva", "Ivan", "Ingrid")
 $jsonResult = Get-SecretSanta -Names $names -Message "Du ska köpa julklapp till: "
 Write-Output $jsonResult
